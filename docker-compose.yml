@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  key_value_store:
+    build: .
+    ports:
+      - 6378:6378
+    volumes:
+      - .:/key_value_store
+    networks:
+      - micro-redis-network
+    # command: "bash -c 'ruby server/server.rb'"
+
+networks:
+  micro-redis-network:
+    driver: bridge
